@@ -1,1 +1,1 @@
-# vaporiser
+![vaporiser](assets/logo.svg)
