@@ -2,7 +2,8 @@
 
 [Vaporiser](https://github.com/rnnh/vaporiser) is a Python script that creates a ｖａｐｏｒｗａｖｅ (slowed and reverb) remix of a given MP3 file, with the option of playing over a looped GIF as a video.
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
-The result is written to a new MP3 file, and if a GIF is given in the command, an MP4 file of the GIF on repeat for the duration of the remix.
+The result is written to a new MP3 file, and if a GIF is given in the command, an MP4 video file of the GIF on repeat for the duration of the remix is also created.
+The speed, pitch and low-pass filter cutoff can be controlled with the `--speed`, `--pitch` and `--lowpass` arguments (this is optional, default parameters are provided).
 
 # Contents
 
