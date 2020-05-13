@@ -1,3 +1,14 @@
 certifi==2020.4.5.1
+chardet==3.0.4
+decorator==4.4.2
+idna==2.9
+imageio==2.8.0
+imageio-ffmpeg==0.4.2
+moviepy==1.0.3
 numpy==1.18.4
+Pillow==7.1.2
+proglog==0.1.9
 pysndfx==0.3.6
+requests==2.23.0
+tqdm==4.46.0
+urllib3==1.25.9
