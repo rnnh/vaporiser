@@ -50,6 +50,23 @@ $ source env/bin/activate
 
 # Usage
 
+## Example
+
+Vaporiser can be used to create a remix of the file `audio_file.mp3` with the following command:
+
+```bash
+$ python vaporiser.py --audio audio_file.mp3
+```
+
+The remixed audio will be written to the file `audio_file_vaporised.mp3`.
+By default, `_vaporised` is added to the end of the output filename, unless an output filename is specified using the `--output` argument.
+
+## Help text
+
+```bash
+$ python vaporiser.py --help
+```
+
 ```
 usage: vaporiser.py [-h] [-g GIF_FILE] [-o OUTPUT_NAME] [-s SPEED_RATIO]
                     [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] -a AUDIO_INPUT
