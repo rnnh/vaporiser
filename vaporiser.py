@@ -11,8 +11,8 @@ import re
 # Parsing for command line arguments
 parser = argparse.ArgumentParser(
     formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-    description = "Creates a vaporwave (slowed and reverb) remix of a given MP3\
-    file, with the option of playing over a looped GIF as a video.")
+    description = "Creates a vaporwave (slowed, with reverb) remix of a given \
+    MP3 file, with the option of playing over a looped GIF as a video.")
 
 parser.add_argument("-g", "--gif",
                     dest = "gif_file",
@@ -42,6 +42,11 @@ parser.add_argument("-l", "--lowpass",
                     help = "Cutoff for lowpass filter (Hz).",
                     type = int,
                     default = 3500)
+
+parser.add_argument("-ph", "--phaser",
+                    dest = "phaser",
+                    help = "Enable phaser effect.",
+                    action = "store_true")
 
 required_arguments = parser.add_argument_group("required arguments")
 
@@ -77,6 +82,10 @@ fx = (
     .speed(args.speed_ratio)
     .pitch(args.pitch_shift)
 )
+
+if args.phaser:
+        # phaser: gain_in, gain_out, delay, decay, speed
+        fx = fx.phaser(0.9, 0.8, 2, 0.2, 0.5)
 
 # Applying audio effects
 fx(args.audio_input, audio_output)

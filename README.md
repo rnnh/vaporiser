@@ -1,10 +1,11 @@
 ![vaporiser](assets/logo.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rnnh/vaporiser)
 
-[ｖａｐｏｒｉｓｅｒ](https://github.com/rnnh/vaporiser) is a Python script that creates a vaporwave (slowed and reverb) remix of a given MP3 file, with the option of playing over a looped GIF as a video.
+[ｖａｐｏｒｉｓｅｒ](https://github.com/rnnh/vaporiser) is a Python script that creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the option of playing over a looped GIF as a video.
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
 The result is written to a new MP3 file, and if a GIF is given in the command, an MP4 video file of the GIF on repeat for the duration of the remix is also created.
 The speed, pitch and low-pass filter cutoff can be controlled with the `--speed`, `--pitch` and `--lowpass` arguments (these are optional, default parameters are provided).
+A phaser effect can be applied with the `--phaser` argument.
 
 # Contents
 
@@ -70,9 +71,9 @@ $ python vaporiser.py --help
 
 ```
 usage: vaporiser.py [-h] [-g GIF_FILE] [-o OUTPUT_NAME] [-s SPEED_RATIO]
-                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] -a AUDIO_INPUT
+                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-ph] -a AUDIO_INPUT
 
-Creates a vaporwave (slowed and reverb) remix of a given MP3 file, with the
+Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
 option of playing over a looped GIF as a video.
 
 optional arguments:
@@ -90,6 +91,7 @@ optional arguments:
                         Pitch shift (100ths of a semitone). (default: -50)
   -l LOWPASS_CUTOFF, --lowpass LOWPASS_CUTOFF
                         Cutoff for lowpass filter (Hz). (default: 3500)
+  -ph, --phaser         Enable phaser effect. (default: False)
 
 required arguments:
   -a AUDIO_INPUT, --audio AUDIO_INPUT
