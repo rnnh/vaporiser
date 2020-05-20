@@ -2,6 +2,7 @@
 
 # Loading modules
 from pysndfx import AudioEffectsChain
+from skimage.filters import sobel
 import moviepy.editor as movedit
 import argparse
 import datetime
@@ -48,6 +49,11 @@ parser.add_argument("-ph", "--phaser",
                     help = "Enable phaser effect.",
                     action = "store_true")
 
+parser.add_argument("-sb", "--sobel",
+                    dest = "sobel_filter",
+                    help = "Adds Sobel filter to video output.",
+                    action = "store_true")
+
 required_arguments = parser.add_argument_group("required arguments")
 
 required_arguments.add_argument("-a", "--audio",
@@ -90,6 +96,10 @@ if args.phaser:
 # Applying audio effects
 fx(args.audio_input, audio_output)
 
+def apply_sobel(image):
+    # returns image with Sobel filter applied
+    return sobel(image.astype(float))
+
 # Create video if a GIF file is provided
 if args.gif_file is None:
     # If no GIF is provided, exit here
@@ -101,7 +111,11 @@ else:
     mp3_movedit = movedit.AudioFileClip(audio_output)
     gif_movedit = movedit.VideoFileClip(args.gif_file)
     number_of_loops = float(mp3_movedit.duration / gif_movedit.duration)
-    gif_looped = gif_movedit.loop(number_of_loops)
+    if args.sobel_filter:
+        gif_filtered = gif_movedit.fl_image(apply_sobel)
+        gif_looped = gif_filtered.loop(number_of_loops)
+    else:
+        gif_looped = gif_movedit.loop(number_of_loops)
     gif_looped_with_audio = gif_looped.set_audio(mp3_movedit)
     gif_looped_with_audio.write_videofile(video_output)
     print("Script finished at", datetime.datetime.now().strftime('%H:%M:%S'))

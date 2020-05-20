@@ -5,7 +5,8 @@
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
 The result is written to a new MP3 file, and if a GIF is given in the command, an MP4 video file of the GIF on repeat for the duration of the remix is also created.
 The speed, pitch and low-pass filter cutoff can be controlled with the `--speed`, `--pitch` and `--lowpass` arguments (these are optional, default parameters are provided).
-A phaser effect can be applied with the `--phaser` argument.
+A phaser effect can be applied to the audio with the `--phaser` argument.
+A Sobel filter can be applied to the video output with the `--sobel` argument.
 
 # Contents
 
@@ -71,7 +72,8 @@ $ python vaporiser.py --help
 
 ```
 usage: vaporiser.py [-h] [-g GIF_FILE] [-o OUTPUT_NAME] [-s SPEED_RATIO]
-                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-ph] -a AUDIO_INPUT
+                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-ph] [-sb] -a
+                    AUDIO_INPUT
 
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
 option of playing over a looped GIF as a video.
@@ -92,6 +94,7 @@ optional arguments:
   -l LOWPASS_CUTOFF, --lowpass LOWPASS_CUTOFF
                         Cutoff for lowpass filter (Hz). (default: 3500)
   -ph, --phaser         Enable phaser effect. (default: False)
+  -sb, --sobel          Adds Sobel filter to video output. (default: False)
 
 required arguments:
   -a AUDIO_INPUT, --audio AUDIO_INPUT
