@@ -51,7 +51,7 @@ parser.add_argument("-ph", "--phaser",
 
 parser.add_argument("-sb", "--sobel",
                     dest = "sobel_filter",
-                    help = "Adds Sobel filter to video output.",
+                    help = "Applies a Sobel filter to video output.",
                     action = "store_true")
 
 required_arguments = parser.add_argument_group("required arguments")
@@ -89,8 +89,9 @@ fx = (
     .pitch(args.pitch_shift)
 )
 
+# Adds a phaser to the audio effects chain function
 if args.phaser:
-        # phaser: gain_in, gain_out, delay, decay, speed
+        # fx.phaser(gain_in, gain_out, delay, decay, speed)
         fx = fx.phaser(0.9, 0.8, 2, 0.2, 0.5)
 
 # Applying audio effects
@@ -111,11 +112,10 @@ else:
     mp3_movedit = movedit.AudioFileClip(audio_output)
     gif_movedit = movedit.VideoFileClip(args.gif_file)
     number_of_loops = float(mp3_movedit.duration / gif_movedit.duration)
+    gif_looped = gif_movedit.loop(number_of_loops)
+    # Applies Sobel filter to looped GIF, if --sobel is used
     if args.sobel_filter:
-        gif_filtered = gif_movedit.fl_image(apply_sobel)
-        gif_looped = gif_filtered.loop(number_of_loops)
-    else:
-        gif_looped = gif_movedit.loop(number_of_loops)
+        gif_looped = gif_looped.fl_image(apply_sobel)
     gif_looped_with_audio = gif_looped.set_audio(mp3_movedit)
     gif_looped_with_audio.write_videofile(video_output)
     print("Script finished at", datetime.datetime.now().strftime('%H:%M:%S'))

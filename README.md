@@ -94,7 +94,8 @@ optional arguments:
   -l LOWPASS_CUTOFF, --lowpass LOWPASS_CUTOFF
                         Cutoff for lowpass filter (Hz). (default: 3500)
   -ph, --phaser         Enable phaser effect. (default: False)
-  -sb, --sobel          Adds Sobel filter to video output. (default: False)
+  -sb, --sobel          Applies a Sobel filter to video output. (default:
+                        False)
 
 required arguments:
   -a AUDIO_INPUT, --audio AUDIO_INPUT
