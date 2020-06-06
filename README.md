@@ -5,8 +5,7 @@
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
 The result is written to a new MP3 file, and if a GIF is given in the command, an MP4 video file of the GIF on repeat for the duration of the remix is also created.
 The speed, pitch and low-pass filter cutoff can be controlled with the `--speed`, `--pitch` and `--lowpass` arguments (these are optional, default parameters are provided).
-A phaser effect can be applied to the audio with the `--phaser` argument.
-A Sobel filter can be applied to the video output with the `--sobel` argument.
+See [usage](#usage) for a full list of available effects.
 
 # Contents
 
@@ -71,21 +70,26 @@ $ python vaporiser.py --help
 ```
 
 ```
-usage: vaporiser.py [-h] [-g GIF_FILE] [-o OUTPUT_NAME] [-s SPEED_RATIO]
-                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-ph] [-sb] -a
-                    AUDIO_INPUT
+usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
+                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-tr] [-ph]
+                    [-ga GAIN_DB] [-co] [-g GIF_FILE] [-sb]
 
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
 option of playing over a looped GIF as a video.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -g GIF_FILE, --gif GIF_FILE
-                        Input GIF file to loop. Without a GIF, only an MP3 is
-                        created. With a GIF, an MP4 video is also created.
-                        (default: None)
   -o OUTPUT_NAME, --output OUTPUT_NAME
-                        Name of output file. (default: None)
+                        Name of output file(s), instead of audio file name
+                        with the addition of '_vaporised'. (default: None)
+
+required arguments:
+  -a AUDIO_INPUT, --audio AUDIO_INPUT
+                        Input audio file to vaporise (.mp3) (default: None)
+
+audio arguments:
+  these arguments control audio effects that will be applied by default
+
   -s SPEED_RATIO, --speed SPEED_RATIO
                         Ratio of new playback speed to old speed. (default:
                         0.85)
@@ -93,11 +97,25 @@ optional arguments:
                         Pitch shift (100ths of a semitone). (default: -50)
   -l LOWPASS_CUTOFF, --lowpass LOWPASS_CUTOFF
                         Cutoff for lowpass filter (Hz). (default: 3500)
+
+extra audio arguments:
+  these arguments control extra, optional audio effects
+
+  -tr, --tremolo        Enable tremolo effect. (default: False)
   -ph, --phaser         Enable phaser effect. (default: False)
+  -ga GAIN_DB, --gain GAIN_DB
+                        Applies gain (dB). (default: None)
+  -co, --compand        Enable compand, which compresses the dynamic range of
+                        the audio. (default: False)
+
+video arguments:
+  optional arguments, result in an MP4 video output in addition to the MP3
+  audio
+
+  -g GIF_FILE, --gif GIF_FILE
+                        Input GIF file to loop. Without a GIF, only an MP3 is
+                        created. With a GIF, an MP4 video is also created.
+                        (default: None)
   -sb, --sobel          Applies a Sobel filter to video output. (default:
                         False)
-
-required arguments:
-  -a AUDIO_INPUT, --audio AUDIO_INPUT
-                        Input audio file to vaporise (.mp3) (default: None)
 ```
