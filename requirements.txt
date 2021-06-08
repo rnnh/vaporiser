@@ -23,4 +23,4 @@ scipy==1.4.1
 six==1.14.0
 tifffile==2020.5.11
 tqdm==4.46.0
-urllib3==1.25.9
+urllib3==1.26.5
