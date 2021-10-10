@@ -93,9 +93,9 @@ audio arguments:
 
   -s SPEED_RATIO, --speed SPEED_RATIO
                         Ratio of new playback speed to old speed. (default:
-                        0.85)
+                        0.75)
   -p PITCH_SHIFT, --pitch PITCH_SHIFT
-                        Pitch shift (100ths of a semitone). (default: -50)
+                        Pitch shift (100ths of a semitone). (default: -75)
   -l LOWPASS_CUTOFF, --lowpass LOWPASS_CUTOFF
                         Cutoff for lowpass filter (Hz). (default: 3500)
 
