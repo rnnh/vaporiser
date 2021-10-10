@@ -38,13 +38,13 @@ audio_arguments.add_argument("-s", "--speed",
                     dest = "speed_ratio",
                     help = "Ratio of new playback speed to old speed.",
                     type = float,
-                    default = 0.85)
+                    default = 0.75)
 
 audio_arguments.add_argument("-p", "--pitch",
                     dest = "pitch_shift",
                     help = "Pitch shift (100ths of a semitone).",
                     type = float,
-                    default = -50)
+                    default = -75)
 
 audio_arguments.add_argument("-l", "--lowpass",
                     dest = "lowpass_cutoff",
