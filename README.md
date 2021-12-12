@@ -55,10 +55,10 @@ $ source env/bin/activate
 
 ## Windows
 
-C:\Users\Ronan\Documents>git clone https://github.com/rnnh/vaporiser
-C:\Users\Ronan\vaporiser>pip3 install virtualenv
-C:\Users\Ronan\vaporiser>python -m virtualenv env
-C:\Users\Ronan\vaporiser>.\env\Scripts\activate
+C:\Users\UserName\Documents>git clone https://github.com/rnnh/vaporiser
+C:\Users\UserName\vaporiser>pip3 install virtualenv
+C:\Users\UserName\vaporiser>python -m virtualenv env
+C:\Users\UserName\vaporiser>.\env\Scripts\activate
 
 # Usage
 
