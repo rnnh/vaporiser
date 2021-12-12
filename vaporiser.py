@@ -2,7 +2,6 @@
 
 # Loading modules
 from pysndfx import AudioEffectsChain
-from skimage.filters import sobel
 import moviepy.editor as movedit
 import argparse
 import datetime
@@ -90,11 +89,6 @@ video_arguments.add_argument("-g", "--gif",
                     is created. With a GIF, an MP4 video is also created.",
                     type = str)
 
-video_arguments.add_argument("-sb", "--sobel",
-                    dest = "sobel_filter",
-                    help = "Applies a Sobel filter to video output.",
-                    action = "store_true")
-
 args = parser.parse_args()
 
 # Setting name of output file
@@ -144,10 +138,6 @@ fx = fx.speed(args.speed_ratio)\
 # Applying audio effects
 fx(args.audio_input, audio_output)
 
-def apply_sobel(image):
-    # returns image with Sobel filter applied
-    return sobel(image.astype(float))
-
 # Create video if a GIF file is provided
 if args.gif_file is None:
     # If no GIF is provided, exit here
@@ -160,9 +150,6 @@ else:
     gif_movedit = movedit.VideoFileClip(args.gif_file)
     number_of_loops = float(mp3_movedit.duration / gif_movedit.duration)
     gif_looped = gif_movedit.loop(number_of_loops)
-    # Applies Sobel filter to looped GIF, if --sobel is used
-    if args.sobel_filter:
-        gif_looped = gif_looped.fl_image(apply_sobel)
     gif_looped_with_audio = gif_looped.set_audio(mp3_movedit)
     gif_looped_with_audio.write_videofile(video_output)
     print("Script finished at", datetime.datetime.now().strftime('%H:%M:%S'))
