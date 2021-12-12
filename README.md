@@ -31,25 +31,34 @@ Required Python modules are given in [requirements.txt](requirements.txt).
 
 # Setup instructions
 
-## Clone the repo
+## Mac OS/Linux
+
+### Clone the repo
 
 ```bash
 $ git clone https://github.com/rnnh/vaporiser.git
 $ cd vaporiser/
 ```
 
-## Create a virtual environment
+### Create a virtual environment
 
 ```bash
 $ virtualenv env
 $ source env/bin/activate
 ```
 
-## Install required packages
+### Install required packages
 
 ```bash
 (env) $ pip install -r requirements.txt
 ```
+
+## Windows
+
+C:\Users\Ronan\Documents>git clone https://github.com/rnnh/vaporiser
+C:\Users\Ronan\vaporiser>pip3 install virtualenv
+C:\Users\Ronan\vaporiser>python -m virtualenv env
+C:\Users\Ronan\vaporiser>.\env\Scripts\activate
 
 # Usage
 
