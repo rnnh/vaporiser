@@ -16,9 +16,23 @@ See [usage](#usage) for a full list of available effects.
 
 # System requirements
 
-- Python 3.6.9 or higher
+## Required software
+
+- [Python](https://www.python.org/) 3.6.9 or higher
+- Python modules in [requirements.txt](requirements.txt)
 - [Sound eXchange (SoX)](http://sox.sourceforge.net/)
 - [libsox-fmt-mp3 for SoX MP3 support](https://pkgs.org/download/libsox-fmt-mp3)
+- A UNIX operating system (Linux or macOS)
+
+## Using vaporiser on Windows
+
+This project is written to be used through a UNIX (Linux or Mac with macOS Mojave or later) operating system (OS).
+If you are using Windows, you can use this project on a Linux OS (e.g. [Ubuntu](https://ubuntu.com/)) through either:
+
+- [Windows Subsytem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about)
+- [A virtual machine](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox)
+
+## Installing SoX
 
 SoX and libson-fmt-mp3 can be installed with the following commands:
 
@@ -26,8 +40,6 @@ SoX and libson-fmt-mp3 can be installed with the following commands:
 $ sudo apt install sox
 $ sudo apt-get install libsox-fmt-mp3
 ```
-
-Required Python modules are given in [requirements.txt](requirements.txt).
 
 # Setup instructions
 
@@ -41,14 +53,14 @@ $ cd vaporiser/
 ## Create a virtual environment
 
 ```bash
-$ virtualenv env
-$ source env/bin/activate
+/vaporiser$ virtualenv env
+/vaporiser$ source env/bin/activate
 ```
 
 ## Install required packages
 
 ```bash
-(env) $ pip install -r requirements.txt
+(env) /vaporiser$ pip install -r requirements.txt
 ```
 
 # Usage
