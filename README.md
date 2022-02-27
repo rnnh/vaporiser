@@ -3,7 +3,7 @@
 ![GitHub licence](https://img.shields.io/github/license/rnnh/vaporiser)
 ![Code style: Black](https://img.shields.io/badge/code%20style-black-black)
 
-<a href='https://ko-fi.com/rnn_h' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+<a href='https://ko-fi.com/rnn_h' target='_blank'><img height='30' style='border:0px;height:38px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 
 [ｖａｐｏｒｉｓｅｒ](https://github.com/rnnh/vaporiser) is a Python script that creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the option of playing over a looped GIF as a video.
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
