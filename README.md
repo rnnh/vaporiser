@@ -1,6 +1,9 @@
 ![vaporiser](assets/logo.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rnnh/vaporiser)
-![GitHub](https://img.shields.io/github/license/rnnh/vaporiser)
+![GitHub licence](https://img.shields.io/github/license/rnnh/vaporiser)
+![Code style: Black](https://img.shields.io/badge/code%20style-black-black)
+
+<a href='https://ko-fi.com/rnn_h' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 
 [ｖａｐｏｒｉｓｅｒ](https://github.com/rnnh/vaporiser) is a Python script that creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the option of playing over a looped GIF as a video.
 It adds reverb, applies a low-pass filter, slows down, and pitches down an input MP3 file.
@@ -18,7 +21,7 @@ See [usage](#usage) for a full list of available effects.
 
 ## Required software
 
-- [Python](https://www.python.org/) 3.6.9 or higher
+- [Python](https://www.python.org/) 3.10 or higher
 - Python modules in [requirements.txt](requirements.txt)
 - [Sound eXchange (SoX)](http://sox.sourceforge.net/)
 - [libsox-fmt-mp3 for SoX MP3 support](https://pkgs.org/download/libsox-fmt-mp3)
@@ -41,6 +44,13 @@ $ sudo apt install sox
 $ sudo apt-get install libsox-fmt-mp3
 ```
 
+## Installing Python 3.10 and venv on Ubuntu
+
+```bash
+$ sudo apt install python3.10
+$ sudo apt-get install python3.10-venv
+```
+
 # Setup instructions
 
 ## Clone the repo
@@ -53,13 +63,14 @@ $ cd vaporiser/
 ## Create a virtual environment
 
 ```bash
-/vaporiser$ virtualenv env
+/vaporiser$ python3.10 -m venv env
 /vaporiser$ source env/bin/activate
 ```
 
 ## Install required packages
 
 ```bash
+(env) /vaporiser$ pip install --upgrade pip
 (env) /vaporiser$ pip install -r requirements.txt
 ```
 
@@ -90,7 +101,7 @@ usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
 option of playing over a looped GIF as a video.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -o OUTPUT_NAME, --output OUTPUT_NAME
                         Name of output file(s), instead of audio file name
