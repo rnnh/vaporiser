@@ -97,6 +97,18 @@ def main():
     )
 
     audio_arguments_optional.add_argument(
+        "-op",
+        "--oops",
+        dest="oops",
+        help=(
+            "Applies Out Of Phase Stereo effect. This is sometimes known as the"
+            " ‘karaoke’ effect as it often has the effect of removing most or all of"
+            " the vocals from a recording."
+        ),
+        action="store_true",
+    )
+
+    audio_arguments_optional.add_argument(
         "-tr",
         "--tremolo",
         dest="tremolo",
@@ -192,6 +204,10 @@ def main():
 
     # Adding reverb, lowpass filter, speed alteration to audio effects chain
     fx = fx.speed(args.speed_ratio).lowpass(args.lowpass_cutoff).reverb()
+
+    # Adds OOPS to audio effects chain
+    if args.oops:
+        fx = fx.custom("oops")
 
     # Applying audio effects
     fx(args.audio_input, audio_output)
