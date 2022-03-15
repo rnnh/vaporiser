@@ -95,8 +95,8 @@ $ python vaporiser.py --help
 
 ```
 usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
-                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-tr] [-ph]
-                    [-ga GAIN_DB] [-co] [-g GIF_FILE] [-sb]
+                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-b BASS]
+                    [-ga GAIN_DB] [-tr] [-ph] [-co] [-g GIF_FILE] [-sb]
 
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
 option of playing over a looped GIF as a video.
@@ -125,10 +125,12 @@ audio arguments:
 extra audio arguments:
   these arguments control extra, optional audio effects
 
-  -tr, --tremolo        Enable tremolo effect. (default: False)
-  -ph, --phaser         Enable phaser effect. (default: False)
+  -b BASS, --bass BASS  Add a bass boost effect (e.g. --bass 3). (default:
+                        None)
   -ga GAIN_DB, --gain GAIN_DB
                         Applies gain (dB). (default: None)
+  -tr, --tremolo        Enable tremolo effect. (default: False)
+  -ph, --phaser         Enable phaser effect. (default: False)
   -co, --compand        Enable compand, which compresses the dynamic range of
                         the audio. (default: False)
 

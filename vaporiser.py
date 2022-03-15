@@ -79,6 +79,24 @@ def main():
     )
 
     audio_arguments_optional.add_argument(
+        "-b",
+        "--bass",
+        dest="bass",
+        help="Add a bass boost effect (e.g. --bass 3).",
+        type=int,
+        default=None,
+    )
+
+    audio_arguments_optional.add_argument(
+        "-ga",
+        "--gain",
+        dest="gain_db",
+        help="Applies gain (dB).",
+        type=int,
+        default=None,
+    )
+
+    audio_arguments_optional.add_argument(
         "-tr",
         "--tremolo",
         dest="tremolo",
@@ -92,15 +110,6 @@ def main():
         dest="phaser",
         help="Enable phaser effect.",
         action="store_true",
-    )
-
-    audio_arguments_optional.add_argument(
-        "-ga",
-        "--gain",
-        dest="gain_db",
-        help="Applies gain (dB).",
-        type=int,
-        default=None,
     )
 
     audio_arguments_optional.add_argument(
@@ -154,8 +163,15 @@ def main():
             print("ERROR: Input and output name are identical")
             sys.exit()
 
-    # Creating audio effects chain function
-    fx = AudioEffectsChain().pitch(args.pitch_shift)
+    # Creating an audio effects chain, beginning with...
+    if args.bass:
+        # ...bass boost effect
+        bass_boost = f'{"bass "}{args.bass}'
+        fx = AudioEffectsChain().custom(bass_boost)
+        fx = fx.pitch(args.pitch_shift)
+    else:
+        # ...pitch shift
+        fx = AudioEffectsChain().pitch(args.pitch_shift)
 
     # Adds tremolo effect to the audio effects chain
     if args.tremolo:
