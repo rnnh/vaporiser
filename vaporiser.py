@@ -81,7 +81,7 @@ def main():
     audio_arguments_optional.add_argument(
         "-b",
         "--bass",
-        dest="bass",
+        dest="bass_boost",
         help="Add a bass boost effect (e.g. --bass 3).",
         type=int,
         default=None,
@@ -164,9 +164,9 @@ def main():
             sys.exit()
 
     # Creating an audio effects chain, beginning with...
-    if args.bass:
+    if args.bass_boost:
         # ...bass boost effect
-        bass_boost = f'{"bass "}{args.bass}'
+        bass_boost = f'{"bass "}{args.bass_boost}'
         fx = AudioEffectsChain().custom(bass_boost)
         fx = fx.pitch(args.pitch_shift)
     else:

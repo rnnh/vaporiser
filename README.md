@@ -95,7 +95,7 @@ $ python vaporiser.py --help
 
 ```
 usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
-                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-b BASS]
+                    [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-b BASS_BOOST]
                     [-ga GAIN_DB] [-tr] [-ph] [-co] [-g GIF_FILE] [-sb]
 
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
@@ -125,7 +125,8 @@ audio arguments:
 extra audio arguments:
   these arguments control extra, optional audio effects
 
-  -b BASS, --bass BASS  Add a bass boost effect (e.g. --bass 3). (default:
+  -b BASS_BOOST, --bass BASS_BOOST
+                        Add a bass boost effect (e.g. --bass 3). (default:
                         None)
   -ga GAIN_DB, --gain GAIN_DB
                         Applies gain (dB). (default: None)
