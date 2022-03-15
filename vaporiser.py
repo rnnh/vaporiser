@@ -16,7 +16,8 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description=(
             "Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with"
-            " the option of playing over a looped GIF as a video."
+            " multiple audio effects available, and the option of playing over a looped"
+            " GIF as a video."
         ),
     )
 
@@ -109,18 +110,18 @@ def main():
     )
 
     audio_arguments_optional.add_argument(
-        "-tr",
-        "--tremolo",
-        dest="tremolo",
-        help="Enable tremolo effect.",
-        action="store_true",
-    )
-
-    audio_arguments_optional.add_argument(
         "-ph",
         "--phaser",
         dest="phaser",
         help="Enable phaser effect.",
+        action="store_true",
+    )
+
+    audio_arguments_optional.add_argument(
+        "-tr",
+        "--tremolo",
+        dest="tremolo",
+        help="Enable tremolo effect.",
         action="store_true",
     )
 
@@ -185,27 +186,27 @@ def main():
         # ...pitch shift
         fx = AudioEffectsChain().pitch(args.pitch_shift)
 
-    # Adds tremolo effect to the audio effects chain
+    # Adding tremolo effect to the audio effects chain
     if args.tremolo:
         fx = fx.tremolo(freq=500, depth=50)
 
-    # Adds a phaser to the audio effects chain
+    # Adding phaser to the audio effects chain
     if args.phaser:
         # fx.phaser(gain_in, gain_out, delay, decay, speed)
         fx = fx.phaser(0.9, 0.8, 2, 0.2, 0.5)
 
-    # Applies gain to the audio effects chain
+    # Adding gain to the audio effects chain
     if args.gain_db is not None:
         fx = fx.gain(db=args.gain_db)
 
-    # Applies compand to the audio effects chain
+    # Adding compand to the audio effects chain
     if args.compand:
         fx = fx.compand()
 
     # Adding reverb, lowpass filter, speed alteration to audio effects chain
     fx = fx.speed(args.speed_ratio).lowpass(args.lowpass_cutoff).reverb()
 
-    # Adds OOPS to audio effects chain
+    # Adding OOPS to audio effects chain
     if args.oops:
         fx = fx.custom("oops")
 

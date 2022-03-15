@@ -96,10 +96,11 @@ $ python vaporiser.py --help
 ```
 usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
                     [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-b BASS_BOOST]
-                    [-ga GAIN_DB] [-tr] [-ph] [-co] [-g GIF_FILE] [-sb]
+                    [-ga GAIN_DB] [-op] [-ph] [-tr] [-co] [-g GIF_FILE] [-sb]
 
-Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with the
-option of playing over a looped GIF as a video.
+Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with
+multiple audio effects available, and the option of playing over a looped GIF
+as a video.
 
 options:
   -h, --help            show this help message and exit
@@ -130,8 +131,12 @@ extra audio arguments:
                         None)
   -ga GAIN_DB, --gain GAIN_DB
                         Applies gain (dB). (default: None)
-  -tr, --tremolo        Enable tremolo effect. (default: False)
+  -op, --oops           Applies Out Of Phase Stereo effect. This is sometimes
+                        known as the ‘karaoke’ effect as it often has the
+                        effect of removing most or all of the vocals from a
+                        recording. (default: False)
   -ph, --phaser         Enable phaser effect. (default: False)
+  -tr, --tremolo        Enable tremolo effect. (default: False)
   -co, --compand        Enable compand, which compresses the dynamic range of
                         the audio. (default: False)
 
