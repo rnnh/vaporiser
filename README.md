@@ -85,6 +85,14 @@ $ cd vaporiser/
 (env) /vaporiser$ pip install -r requirements.txt
 ```
 
+## Optional: Make script executable
+
+Making the script executable will allow it to be called from the command line using `$ ./vaporiser.py` instead of `$ python vaporiser.py` when the virtual environment is active.
+
+```bash
+(env) $ chmod +x vaporiser.py
+```
+
 # Usage
 
 ## Example
