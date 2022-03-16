@@ -186,6 +186,10 @@ def main():
         # ...pitch shift
         fx = AudioEffectsChain().pitch(args.pitch_shift)
 
+    # Adding OOPS to audio effects chain
+    if args.oops:
+        fx = fx.custom("oops")
+
     # Adding tremolo effect to the audio effects chain
     if args.tremolo:
         fx = fx.tremolo(freq=500, depth=50)
@@ -205,10 +209,6 @@ def main():
 
     # Adding reverb, lowpass filter, speed alteration to audio effects chain
     fx = fx.speed(args.speed_ratio).lowpass(args.lowpass_cutoff).reverb()
-
-    # Adding OOPS to audio effects chain
-    if args.oops:
-        fx = fx.custom("oops")
 
     # Applying audio effects
     fx(args.audio_input, audio_output)
