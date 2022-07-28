@@ -133,6 +133,14 @@ def main():
         action="store_true",
     )
 
+    audio_arguments_optional.add_argument(
+        "-nr",
+        "--noreverb",
+        dest="no_reverb",
+        help="Disables reverb.",
+        action="store_true",
+    )
+
     video_arguments = parser.add_argument_group(
         "video arguments",
         "optional arguments, result in an MP4 video output in addition to the MP3"
@@ -207,8 +215,12 @@ def main():
     if args.compand:
         fx = fx.compand()
 
-    # Adding reverb, lowpass filter, speed alteration to audio effects chain
-    fx = fx.speed(args.speed_ratio).lowpass(args.lowpass_cutoff).reverb()
+    # Adding lowpass filter, speed alteration to audio effects chain
+    fx = fx.speed(args.speed_ratio).lowpass(args.lowpass_cutoff)
+
+    if args.no_reverb is False:
+        # Adding reverb to audio effects chain
+        fx = fx.reverb()
 
     # Applying audio effects
     fx(args.audio_input, audio_output)
