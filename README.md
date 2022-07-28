@@ -12,6 +12,7 @@ Vaporiser can apply the following audio effects:
 
 - Speed shift
 - Pitch shift
+- Reverb
 - Lowpass filter
 - Bass boost
 - Gain adjustment
@@ -115,7 +116,8 @@ $ python vaporiser.py --help
 ```
 usage: vaporiser.py [-h] [-o OUTPUT_NAME] -a AUDIO_INPUT [-s SPEED_RATIO]
                     [-p PITCH_SHIFT] [-l LOWPASS_CUTOFF] [-b BASS_BOOST]
-                    [-ga GAIN_DB] [-op] [-ph] [-tr] [-co] [-g GIF_FILE] [-sb]
+                    [-ga GAIN_DB] [-op] [-ph] [-tr] [-co] [-nr] [-g GIF_FILE]
+                    [-sb]
 
 Creates a vaporwave (slowed, with reverb) remix of a given MP3 file, with
 multiple audio effects available, and the option of playing over a looped GIF
@@ -158,6 +160,7 @@ extra audio arguments:
   -tr, --tremolo        Enable tremolo effect. (default: False)
   -co, --compand        Enable compand, which compresses the dynamic range of
                         the audio. (default: False)
+  -nr, --noreverb       Disables reverb. (default: False)
 
 video arguments:
   optional arguments, result in an MP4 video output in addition to the MP3
