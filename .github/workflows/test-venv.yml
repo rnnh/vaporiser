@@ -1,0 +1,34 @@
+name: Test Python Environment
+
+on: [push, pull_request]
+
+jobs:
+  test-venv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      
+      - name: Install SoX
+        run: |
+          sudo apt install sox;
+          sudo apt-get install libsox-fmt-mp3;
+      
+      - name: Installing Python 3.10 and venv
+        run: |
+          sudo apt install python3.10;
+          sudo apt-get install python3.10-venv;
+        
+      - name: Create a virtual environment
+        run: |
+          python3.10 -m venv env; 
+          source env/bin/activate;
+          
+      - name: Install required packages
+        run: |
+          pip install --upgrade pip;
+          pip install -r requirements.txt;
+          
+      - name: Test script by printing help text
+        run: python vaporiser.py --help
