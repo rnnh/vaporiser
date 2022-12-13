@@ -2,6 +2,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rnnh/vaporiser)
 ![GitHub licence](https://img.shields.io/github/license/rnnh/vaporiser)
 ![Code style: Black](https://img.shields.io/badge/code%20style-black-black)
+[![Test Python Environment](https://github.com/rnnh/vaporiser/actions/workflows/test-venv.yml/badge.svg)](https://github.com/rnnh/vaporiser/actions/workflows/test-venv.yml)
 
 <a href='https://ko-fi.com/rnn_h' target='_blank'><img height='30' style='border:0px;height:30px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 
