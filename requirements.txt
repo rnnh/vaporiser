@@ -28,7 +28,7 @@ PyWavelets==1.2.0
 PyWheel==0.1
 requests==2.31.0
 scikit-image==0.19.2
-scipy==1.8.0
+scipy==1.10.0
 six==1.16.0
 tifffile==2022.2.9
 tomli==2.0.1
