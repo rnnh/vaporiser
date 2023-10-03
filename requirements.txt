@@ -33,4 +33,4 @@ six==1.16.0
 tifffile==2022.2.9
 tomli==2.0.1
 tqdm==4.62.3
-urllib3==1.26.8
+urllib3==1.26.17
